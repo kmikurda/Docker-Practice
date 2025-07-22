@@ -1,0 +1,27 @@
+﻿version: '3.8'
+services:
+  web:
+    build: ./src/ContainerWebApp
+    environment:
+      - DATABASE_URL=Host=db;Username=user;Password=password;Database=appdb
+      - REDIS_URL=redis:6379
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "5000:8080"
+
+  db:
+    image: postgres:14-alpine
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=appdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+
+volumes:
+  postgres_data:
