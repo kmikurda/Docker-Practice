@@ -6,9 +6,9 @@ This repository contains exercises related to the Docker platform — building c
 
 ## 🔀 Branches Overview
 
-> _In this section, an explanation of each branch will be provided._  
-> *(To be completed as branches are added.)*
-
+- **main** <- You are here
+- **3-containers-app** - Simple .NET app + PostgreSQL + Redis
+- **10-containers-app** - Soon...
 ---
 
 ## 🐳 Dockerfile: Basic Configuration
@@ -57,12 +57,6 @@ Open a terminal in the `src` directory and execute the following commands:
    ```bash
    docker rm reservations
    ```
-
----
-
-## 📁 File Structure (Main Branch)
-
-> Instructions above are related to the files available in the `main` branch.
 
 ---
 
