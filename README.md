@@ -14,7 +14,7 @@ Docker supports multi-stage builds, which enhance transparency and reduce final 
 
 | Stage   | Description                                                                 |
 |---------|-----------------------------------------------------------------------------|
-| Restore | Mainly for documentation and early configuration (e.g., setting environment variables). |
+| Base | Mainly for documentation and early configuration (e.g., setting environment variables). |
 | Build   | Restores NuGet packages and builds the application and its dependencies.    |
 | Publish | Publishes the compiled app to a dedicated folder.                          |
 | Final   | Builds the final runtime image.                                             |
