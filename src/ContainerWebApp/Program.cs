@@ -4,18 +4,15 @@ using StackExchange.Redis;
 var builder = WebApplication.CreateBuilder(args);
  
 
-// Konfiguracja Redis
 builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
     ConnectionMultiplexer.Connect(Environment.GetEnvironmentVariable("REDIS_URL") ?? "localhost:6379")
 );
 
-// Konfiguracja PostgreSQL - jako Transient żeby zawsze tworzyć nowe połączenie
 builder.Services.AddTransient<Func<NpgsqlConnection>>(sp => () => 
     new NpgsqlConnection(Environment.GetEnvironmentVariable("DATABASE_URL"))
 );
 
 var app = builder.Build();
-//app.Urls.Add("http://0.0.0.0:8080");
 app.MapGet("/", () => "Hello World!");
 
 app.MapGet("/db", async (Func<NpgsqlConnection> createConnection) =>
